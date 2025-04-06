@@ -62,6 +62,10 @@ def nutrition_chatbot(message):
     response = model.generate_content(prompt, generation_config={"temperature": 0.7, "top_p": 1.0, "top_k": 1})
     return response.text.strip()
 
+@app.route("/")
+def home():
+    return "Nutribuddy is up and running!"
+
 @app.route("/api/chat", methods=["POST"])
 def chat():
     data = request.get_json()
