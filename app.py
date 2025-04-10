@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import google.generativeai as genai
 from flask_cors import CORS
 import os
@@ -52,6 +52,8 @@ def nutrition_chatbot(message):
     Be brief and specific.
     Format in 1-3 bullet points or short sentences.
     If the question is off-topic, politely decline.
+    Use plain bullet points (use "•" symbol, not "-").
+    Avoid markdown symbols like *, **, or code blocks.
 
     Personalize responses based on this memory:
     {memory_summary}
@@ -62,9 +64,6 @@ def nutrition_chatbot(message):
     response = model.generate_content(prompt, generation_config={"temperature": 0.7, "top_p": 1.0, "top_k": 1})
     return response.text.strip()
 
-@app.route("/")
-def home():
-    return "Nutribuddy is up and running!"
 
 @app.route("/api/chat", methods=["POST"])
 def chat():
@@ -76,9 +75,6 @@ def chat():
     reply = nutrition_chatbot(message)
     return jsonify({"response": reply})
 
-@app.route("/")
-def home():
-    return "Nutribuddy is up and running!"
 
 @app.route("/")
 def home():
