@@ -64,7 +64,7 @@ const chatbotActivate = () => {
 
   // Communicate with Flask API
   const generateResponse = (li, message) => {
-    const API_URL = "http://localhost:5000/api/chat"; // replace with deployed endpoint later
+    const API_URL = "https://nutribuddy-ai-enabled-meal-planner-npxd.onrender.com"; // replace with deployed endpoint later
     const messageElement = li.querySelector("p");
 
     fetch(API_URL, {
