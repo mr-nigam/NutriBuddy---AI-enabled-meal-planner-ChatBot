@@ -3,7 +3,7 @@ import google.generativeai as genai
 from flask_cors import CORS
 import os
 app = Flask(__name__)
-CORS(app)
+CORS(app,resources={r"/*": {"origins":"*"}})
 
 # Gemini API setup
 genai.configure(api_key="AIzaSyB7SIduhYVQoSSoyJp3v87zeeYQ4bsQMi0")
