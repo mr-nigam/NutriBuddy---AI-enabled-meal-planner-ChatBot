@@ -258,10 +258,10 @@ body {
 }
 
 .faq-section {
-  height:85%
-  width:20%
+  height:600px;
+  width:300px;
   padding: 5px;
-  margin: 10px 12px 90px;
+  margin: 30px 12px 90px;
   border-radius: 10px;
   font-size: 0.9rem;
   color: white;
