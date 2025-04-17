@@ -56,7 +56,7 @@ body {
 .chatbot {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 65%;
   transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
   pointer-events: none;
@@ -258,7 +258,7 @@ body {
 }
 
 .faq-section {
-  height:600px;
+  height:620px;
   width:300px;
   padding: 5px;
   margin: 30px 12px 90px;
