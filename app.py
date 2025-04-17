@@ -45,6 +45,31 @@ def nutrition_chatbot(message):
     - Goals: {', '.join(user_memory['goals']) or 'not specified'}
     """
 
+    if "diet plan" in message.lower() or "meal plan" in message.lower():
+        prompt = f"""
+        You are a certified dietician chatbot.
+
+        Based on the user's preferences below, create a 7-day personalized meal plan including:
+        • Breakfast
+        • Mid-morning snack
+        • Lunch
+        • Evening snack
+        • Dinner
+
+        Keep the meals simple and practical. Include variety.
+        Mention timing suggestions (e.g., Breakfast - 8:00 AM).
+
+        User Preferences:
+        - Diet type: {user_memory['diet'] or 'any'}
+        - Allergies: {', '.join(user_memory['allergies']) or 'none'}
+        - Health Goals: {', '.join(user_memory['goals']) or 'general wellness'}
+
+        Make sure the plan avoids allergens and supports the user’s goal.
+        """
+
+        response = model.generate_content(prompt, generation_config={"temperature": 0.7, "top_p": 1.0, "top_k": 1})
+        return response.text.strip()
+
     prompt = f"""
     You are a certified nutrition and meal planning expert chatbot.
 
