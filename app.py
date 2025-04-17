@@ -46,7 +46,7 @@ def nutrition_chatbot(message):
     """
 
     prompt = f"""
-    You are a certified nutrition expert chatbot.
+    You are a certified nutrition and meal planning expert chatbot.
 
     You MUST answer ONLY food, nutrition, and diet-related questions.
     Be brief and specific.
